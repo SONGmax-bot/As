@@ -1,0 +1,15 @@
+[
+  {
+    "id": "P_demo",
+    "name": "يد تحكم PlayStation",
+    "description": "منتج تجريبي يمكنك حذفه أو تعديله من لوحة المدير.",
+    "price": 0,
+    "cost": 0,
+    "stock": 0,
+    "category_id": "",
+    "image": "",
+    "featured": true,
+    "active": true,
+    "created_at": ""
+  }
+]

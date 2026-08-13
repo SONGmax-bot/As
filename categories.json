@@ -1,0 +1,14 @@
+[
+  {
+    "id": "CAT_PS",
+    "name": "PlayStation"
+  },
+  {
+    "id": "CAT_XBOX",
+    "name": "Xbox"
+  },
+  {
+    "id": "CAT_ACC",
+    "name": "الإكسسوارات"
+  }
+]

@@ -1,0 +1,6 @@
+<?php
+require 'config.php'; $p=product_by_id($_GET['id']??''); if(!$p||empty($p['active'])){http_response_code(404);exit('المنتج غير موجود');}
+$title=$p['name']; require 'header.php';
+?>
+<div class="card"><div class="row"><div><img class="product-img" style="height:320px" src="<?=e($p['image']??'')?>" onerror="this.style.display='none'"></div><div><h1><?=e($p['name'])?></h1><p><?=nl2br(e($p['description']??''))?></p><div class="price"><?=money((float)$p['price'])?></div><p>الكمية المتوفرة: <?=e((string)$p['stock'])?></p><?php if((int)$p['stock']>0): ?><form method="post" action="cart.php"><input type="hidden" name="csrf" value="<?=csrf_token()?>"><input type="hidden" name="action" value="add"><input type="hidden" name="id" value="<?=e($p['id'])?>"><input type="number" name="qty" value="1" min="1" max="<?=e((string)$p['stock'])?>"><button class="btn">إضافة إلى السلة</button></form><?php else: ?><div class="notice">غير متوفر حالياً</div><?php endif; ?></div></div></div>
+<?php require 'footer.php'; ?>

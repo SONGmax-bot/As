@@ -1,0 +1,1 @@
+<?php require 'config.php';unset($_SESSION['admin_id']);redirect('admin_login.php');?>

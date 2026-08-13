@@ -1,0 +1,5 @@
+<?php require 'config.php'; verify_csrf(); if(current_user()) redirect('index.php');
+if($_SERVER['REQUEST_METHOD']==='POST'){ $users=read_json('users.json',[]);$phone=trim($_POST['phone']??'');$pass=$_POST['password']??'';foreach($users as $u)if($u['phone']===$phone&&password_verify($pass,$u['password'])){$_SESSION['user_id']=$u['id'];flash('تم تسجيل الدخول.');redirect('index.php');} $err='رقم الهاتف أو كلمة المرور غير صحيحة.';}
+$title='تسجيل الدخول';require 'header.php'; ?>
+<div class="form"><h1>تسجيل الدخول</h1><?php if(!empty($err)):?><div class="notice"><?=e($err)?></div><?php endif;?><form method="post"><input type="hidden" name="csrf" value="<?=csrf_token()?>"><label>رقم الهاتف</label><input name="phone" required><label>كلمة المرور</label><input type="password" name="password" required><button class="btn">دخول</button></form><p>ليس لديك حساب؟ <a href="register.php">إنشاء حساب</a></p></div>
+<?php require 'footer.php'; ?>
